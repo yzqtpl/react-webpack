@@ -4,12 +4,11 @@ const { CleanWebpackPlugin } = require(`clean-webpack-plugin`); //这里必须�
 const plugins = require("./plugins");
 let ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 const loaders = require("./loaders");
-const utils = require("./webpack.utils.js");
 module.exports = {
   mode: "development",
   entry: {
-    index: `./src/index.js`,
-    app:"./src/app.js"
+    index: `../src/index.js`,
+    app: "../src/app.jsx"
   },
   output: {
     filename: `[name].[hash].js`,
@@ -20,13 +19,15 @@ module.exports = {
   plugins: [
     new webpack.BannerPlugin(`版权所有翻版必究`),
     new CleanWebpackPlugin(), //这里注意要大写啊
-plugins.HtmlWebpackPlugin,
+    plugins.HtmlWebpackPlugin,
+    
     // 拆分后会把css文件放到dist目录下的css/style.css
     new ExtractTextWebpackPlugin("css/style.css"),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    
   ],
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx",'.ts','.tsx'],
     modules: [
       path.resolve(__dirname, `../src`),
       path.resolve(__dirname, `../node_modules`)
@@ -62,9 +63,11 @@ plugins.HtmlWebpackPlugin,
   module: {
     rules: [
       loaders.csLoader,
-     loaders.fileLoader,
+      loaders.fileLoader,
       // loaders.xmlLoader,
-      loaders.jsLoader
+      loaders.tsLoader,
+      loaders.jsLoader,
+      loaders.jsxLoader
     ]
   },
   devtool: `inline-source-map`,
@@ -75,6 +78,6 @@ plugins.HtmlWebpackPlugin,
     historyApiFallback: true, //不跳转
     inline: true, //实时刷新
     port: 7230,
-    host: utils.getIpAdress()
+    host: '0.0.0.0'
   }
 };

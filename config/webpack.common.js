@@ -4,9 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //这里必须�
 const plugins = require("./plugins");
 const loaders = require("./loaders");
 module.exports = {
-  entry: {
-    app: "./src/app.js"
-  },
+  entry: './src/index.tsx',
   output: {
     filename: "[name].[hash].js",
     path: path.resolve(__dirname, "../build"),
@@ -20,6 +18,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json'],
     modules: [
       path.resolve(__dirname, "../src"),
       path.resolve(__dirname, "../node_modules")
@@ -56,6 +55,7 @@ module.exports = {
     rules: [
       loaders.csLoader,
       loaders.fileLoader,
+      loaders.tsLoader,
       // loaders.xmlLoader,
       loaders.jsLoader
     ]
