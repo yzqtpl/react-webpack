@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // components
+
 import Links from "./components/links";
 import Start from "./components/start";
 import Guide from "./components/guide";
 import How from "./components/how";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div>
@@ -22,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+

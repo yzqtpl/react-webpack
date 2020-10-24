@@ -7,6 +7,7 @@ module.exports = {
   entry: './src/index.tsx',
   output: {
     filename: "[name].[hash].js",
+
     path: path.resolve(__dirname, "../build"),
     // 在script标签上添加crossOrigin,以便于支持跨域脚本的错误堆栈捕获
     crossOriginLoading: "anonymous"
@@ -24,7 +25,7 @@ module.exports = {
       path.resolve(__dirname, "../node_modules")
     ],
     alias: {
-      components: path.resolve(__dirname, "/src/components")
+      components: path.resolve(__dirname, "../src/components")
     }
   },
   optimization: {
@@ -53,9 +54,10 @@ module.exports = {
   },
   module: {
     rules: [
-      loaders.csLoader,
+      // loaders.csLoader,
       loaders.fileLoader,
       loaders.tsLoader,
+        loaders.lessLoader,
       // loaders.xmlLoader,
       loaders.jsLoader
     ]

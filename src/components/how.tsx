@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Button from "react-toolbox/lib/button/Button";
+import {Button} from 'antd'
 function How() {
   return (
     <div>
       <h3>How to Use it</h3>
       <pre>git clone https://github.com/JackPu/yarn-react-webpack-seed</pre>
-      <Button label="hello" />
+      <Button >点击</Button>
       <p>
         Then you could use <code>yarn install</code>
       </p>
