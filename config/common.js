@@ -6,7 +6,7 @@ const loaders = require("./loaders");
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    filename: "[name].[hash].js",
+    filename: "[name].[chunkhash].js",
 
     path: path.resolve(__dirname, "../build"),
     // 在script标签上添加crossOrigin,以便于支持跨域脚本的错误堆栈捕获
