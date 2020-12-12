@@ -6,10 +6,11 @@
   "scripts": {
     "watch": "webpack --watch",
     "dev": "webpack serve   --config config/dev.js",
+    "build": "webpack --config config/prod.js",
     "ncu": "ncu&&ncu -u&&yarn",
     "buildbabel": "babel src -d dist",
-    "server": "nodemon server.js",
-    "build": "webpack --config config/prod.js"
+    "server": "nodemon server.js"
+    
   },
   "author": "yzq",
   "license": "ISC",

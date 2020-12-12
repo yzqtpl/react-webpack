@@ -21,14 +21,14 @@ const cssLoader = {
     },
   ],
 };
-const lessLoader={
-  test:/\.less$/,
-  use:[
-    {loader:"style-loader"},
-    {loader:"css-loader"},
-    {loader: "less-loader"}
-  ]
-}
+const lessLoader = {
+  test: /\.less$/,
+  use: [
+    { loader: "style-loader" },
+    { loader: "css-loader" },
+    { loader: "less-loader" },
+  ],
+};
 const csLoader = {
   test: /\.css$/,
   use: ExtractTextWebpackPlugin.extract({
